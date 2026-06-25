@@ -1,363 +1,367 @@
-index.html<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Majestic Getaway — Tern Training Cheat Sheets</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&display=swap" rel="stylesheet" />
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --gold: #C9A96E;
-    --gold-light: #E8D5B0;
-    --gold-pale: #FAF5EC;
-    --navy: #1A2340;
-    --navy-mid: #263054;
-    --teal: #2E7D7A;
-    --teal-light: #E6F4F3;
-    --white: #FFFFFF;
-    --off-white: #F9F7F4;
-    --text: #2C2C2C;
-    --text-muted: #6B6B6B;
-    --warn: #C0392B;
-    --warn-light: #FDECEA;
-    --green: #2E7D4F;
-    --green-light: #E8F5EE;
-    --border: #E2DACC;
+    --ink:        #1a1a2e;
+    --ink-soft:   #4a4a6a;
+    --bg:         #f7f6f2;
+    --surface:    #ffffff;
+    --border:     #e2e0d8;
+    --accent:     #2563a8;
+    --accent-lt:  #dbeafe;
+    --warn:       #92400e;
+    --warn-bg:    #fef3c7;
+    --ok:         #065f46;
+    --ok-bg:      #d1fae5;
+    --radius:     10px;
+    --shadow:     0 1px 4px rgba(0,0,0,.07);
   }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
     font-family: 'Inter', sans-serif;
-    background: var(--off-white);
-    color: var(--text);
-    font-size: 14px;
-    line-height: 1.6;
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink);
+    background: var(--bg);
   }
 
   /* ── NAV ── */
-  .site-header {
-    background: var(--navy);
-    padding: 0 32px;
+  nav {
+    background: var(--ink);
+    padding: 0 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 60px;
+    height: 52px;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 12px rgba(0,0,0,.35);
+    gap: 1rem;
+    flex-wrap: wrap;
   }
-  .site-header .brand {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--gold);
-    letter-spacing: .04em;
-  }
-  .site-header .brand span { color: var(--white); font-weight: 400; }
-  .nav-pills { display: flex; gap: 6px; flex-wrap: wrap; }
-  .nav-pills a {
-    color: var(--gold-light);
+  nav .brand {
+    font-family: 'Fraunces', serif;
+    font-size: 1.05rem;
+    color: #fff;
     text-decoration: none;
-    font-size: 12px;
-    font-weight: 500;
-    padding: 5px 12px;
-    border-radius: 20px;
-    border: 1px solid rgba(201,169,110,.3);
-    transition: background .2s, color .2s;
-    white-space: nowrap;
   }
-  .nav-pills a:hover, .nav-pills a.active {
-    background: var(--gold);
-    color: var(--navy);
-    border-color: var(--gold);
+  nav .nav-links {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
   }
+  nav .nav-links a {
+    color: #a5b4fc;
+    text-decoration: none;
+    font-size: .8rem;
+  }
+  nav .nav-links a:hover { color: #fff; }
 
   /* ── HERO ── */
   .hero {
-    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #1f4e4b 100%);
-    color: var(--white);
-    padding: 48px 40px 40px;
+    background: linear-gradient(135deg, var(--ink) 0%, #2d3a6b 100%);
+    color: #fff;
+    padding: 3.5rem 2rem 3rem;
     text-align: center;
   }
-  .hero h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 38px;
+  .hero .eyebrow {
+    font-size: .72rem;
     font-weight: 700;
-    color: var(--gold);
-    letter-spacing: .02em;
-    margin-bottom: 8px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: #a5b4fc;
+    margin-bottom: .85rem;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.9rem, 4vw, 2.8rem);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 1rem;
   }
   .hero p {
-    color: var(--gold-light);
-    font-size: 14px;
-    max-width: 560px;
-    margin: 0 auto 20px;
+    font-size: .95rem;
+    color: #c7d2fe;
+    max-width: 540px;
+    margin: 0 auto 2rem;
   }
-  .hero-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-  .hero-links a {
-    background: rgba(201,169,110,.15);
-    border: 1px solid var(--gold);
-    color: var(--gold-light);
-    padding: 8px 18px;
+  .hero-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .65rem;
+    justify-content: center;
+  }
+  .hero-btns a {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    font-size: .82rem;
+    font-weight: 600;
+    padding: .55rem 1.1rem;
     border-radius: 6px;
     text-decoration: none;
-    font-size: 12px;
-    font-weight: 500;
-    transition: background .2s;
+    transition: opacity .15s, background .15s;
   }
-  .hero-links a:hover { background: rgba(201,169,110,.3); }
-
-  /* ── LAYOUT ── */
-  .container { max-width: 1160px; margin: 0 auto; padding: 36px 24px 60px; }
-
-  section { margin-bottom: 48px; scroll-margin-top: 72px; }
-
-  .section-eyebrow {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 6px;
+  .hero-btns a.primary {
+    background: #fff;
+    color: var(--ink);
   }
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 26px;
+  .hero-btns a.primary:hover { opacity: .88; }
+  .hero-btns a.ghost {
+    background: transparent;
+    color: #c7d2fe;
+    border: 1px solid #3730a3;
+  }
+  .hero-btns a.ghost:hover { background: #3730a3; color: #fff; }
+
+  /* ── NEW: Service Fee hero button highlight ── */
+  .hero-btns a.highlight {
+    background: #4f46e5;
+    color: #fff;
+    border: 1px solid #6366f1;
+  }
+  .hero-btns a.highlight:hover { background: #4338ca; }
+
+  /* ── PAGE WRAP ── */
+  .page-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem 4rem;
+  }
+
+  /* ── SECTION ── */
+  .section { margin-bottom: 3.5rem; }
+  .section-label {
+    font-size: .7rem;
     font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 4px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: .4rem;
   }
-  .section-subtitle {
-    color: var(--text-muted);
-    font-size: 13px;
-    margin-bottom: 20px;
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: .35rem;
   }
-  .divider {
-    height: 2px;
-    background: linear-gradient(to right, var(--gold), transparent);
-    margin-bottom: 24px;
+  .section-desc {
+    color: var(--ink-soft);
+    font-size: .88rem;
+    margin-bottom: 1.5rem;
+  }
+  h3 { font-size: .95rem; font-weight: 700; margin-bottom: .35rem; }
+
+  hr.divider {
     border: none;
+    border-top: 1px solid var(--border);
+    margin: 2.5rem 0;
   }
 
-  /* ── CARDS ── */
-  .card-grid { display: grid; gap: 16px; }
-  .card-grid.cols-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-  .card-grid.cols-3 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-
-  .card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 20px;
-    position: relative;
-  }
-  .card.gold-accent { border-left: 4px solid var(--gold); }
-  .card.teal-accent { border-left: 4px solid var(--teal); }
-  .card.warn-accent { border-left: 4px solid var(--warn); }
-  .card.green-accent { border-left: 4px solid var(--green); }
-  .card.navy-accent { border-left: 4px solid var(--navy); }
-
-  .card-label {
-    font-size: 10px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: .1em;
-    color: var(--text-muted);
-    margin-bottom: 6px;
-  }
-  .card h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 10px;
-  }
-  .card p { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
-
-  /* ── ALERT BOXES ── */
-  .alert {
-    border-radius: 8px;
-    padding: 14px 18px;
-    font-size: 13px;
-    margin-bottom: 14px;
+  /* ── CALLOUTS ── */
+  .callout {
+    border-radius: var(--radius);
+    padding: .9rem 1.1rem;
+    margin-bottom: 1.25rem;
     display: flex;
-    gap: 10px;
+    gap: .75rem;
     align-items: flex-start;
+    font-size: .87rem;
   }
-  .alert-warn { background: var(--warn-light); border: 1px solid #e57373; color: #7B1E1E; }
-  .alert-green { background: var(--green-light); border: 1px solid #81c784; color: #1B5E20; }
-  .alert-gold { background: var(--gold-pale); border: 1px solid var(--gold); color: #5C440F; }
-  .alert-teal { background: var(--teal-light); border: 1px solid var(--teal); color: #1A4A48; }
-  .alert-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .callout .icon { font-size: 1rem; flex-shrink: 0; margin-top: .1rem; }
+  .callout p { margin: 0; }
+  .callout strong { display: block; margin-bottom: .15rem; font-size: .78rem; text-transform: uppercase; letter-spacing: .07em; }
+  .callout.warn  { background: var(--warn-bg);  border-left: 4px solid #d97706; color: var(--warn); }
+  .callout.info  { background: var(--accent-lt); border-left: 4px solid var(--accent); color: #1e3a5f; }
+  .callout.ok    { background: var(--ok-bg);     border-left: 4px solid #059669; color: var(--ok); }
+  .callout.star  { background: #fefce8;           border-left: 4px solid #ca8a04; color: #713f12; }
+
+  /* ── CARD GRID ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.2rem;
+    box-shadow: var(--shadow);
+  }
+  .card .card-tag {
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: .4rem;
+  }
+  .card h3 { margin-bottom: .4rem; }
+  .card p  { color: var(--ink-soft); font-size: .83rem; }
+
+  /* ── CHECKLIST ── */
+  .checklist { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: .7rem;
+    font-size: .87rem;
+    color: var(--ink-soft);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: .7rem .9rem;
+  }
+  .checklist li::before {
+    content: '☐';
+    color: var(--accent);
+    font-size: 1rem;
+    flex-shrink: 0;
+    line-height: 1.5;
+  }
+  .checklist li > div { min-width: 0; flex: 1; }
+  .checklist li strong { color: var(--ink); display: block; margin-bottom: .1rem; }
+
+  /* ── NEW: Service Fee button in checklist ── */
+  .checklist li .fee-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .3rem;
+    font-size: .75rem;
+    font-weight: 700;
+    background: #4f46e5;
+    color: #fff;
+    padding: .25rem .65rem;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: .4rem;
+    transition: background .15s;
+  }
+  .checklist li .fee-btn:hover { background: #4338ca; }
 
   /* ── WORKFLOW TABLE ── */
-  .wf-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  .wf-table thead tr { background: var(--navy); color: var(--white); }
-  .wf-table thead th { padding: 10px 12px; text-align: left; font-weight: 600; font-size: 12px; letter-spacing: .03em; }
-  .wf-table tbody tr:nth-child(even) { background: var(--off-white); }
-  .wf-table tbody tr:hover { background: var(--gold-pale); }
-  .wf-table td { padding: 9px 12px; vertical-align: top; border-bottom: 1px solid var(--border); }
-  .wf-table .badge {
-    display: inline-block;
-    font-size: 10px;
+  .table-wrap { overflow-x: auto; border-radius: var(--radius); box-shadow: var(--shadow); }
+  table { width: 100%; border-collapse: collapse; font-size: .82rem; }
+  th {
+    background: var(--ink);
+    color: #fff;
+    padding: .65rem .9rem;
+    text-align: left;
+    font-size: .74rem;
     font-weight: 600;
-    padding: 2px 8px;
-    border-radius: 12px;
+    letter-spacing: .05em;
+    text-transform: uppercase;
     white-space: nowrap;
   }
-  .badge-auto { background: var(--green-light); color: var(--green); border: 1px solid #a5d6a7; }
-  .badge-manual { background: var(--gold-pale); color: #7A5522; border: 1px solid var(--gold-light); }
-  .badge-active { background: var(--teal-light); color: var(--teal); border: 1px solid #80cbc4; }
-  .badge-inactive { background: #F3F3F3; color: #999; border: 1px solid #DDD; }
-  .badge-conditional { background: #EDE7F6; color: #4527A0; border: 1px solid #B39DDB; }
-  .badge-warn { background: var(--warn-light); color: var(--warn); border: 1px solid #ef9a9a; }
-
-  /* ── STEPS ── */
-  .steps { display: flex; flex-direction: column; gap: 0; }
-  .step {
-    display: flex;
-    gap: 16px;
-    padding: 14px 0;
+  td {
+    background: var(--surface);
+    padding: .7rem .9rem;
     border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    color: var(--ink-soft);
   }
-  .step:last-child { border-bottom: none; }
-  .step-num {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: var(--navy);
-    color: var(--gold);
+  tr:last-child td { border-bottom: none; }
+  td strong { color: var(--ink); }
+  td .badge {
+    display: inline-block;
+    font-size: .7rem;
     font-weight: 700;
-    font-size: 13px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    margin-top: 2px;
+    padding: .15rem .5rem;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: .05em;
   }
-  .step-body h4 { font-weight: 600; color: var(--navy); font-size: 14px; margin-bottom: 4px; }
-  .step-body p { font-size: 12.5px; color: var(--text-muted); }
-  .step-body .code {
-    background: var(--off-white);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 2px 7px;
-    font-family: monospace;
-    font-size: 12px;
-    color: var(--navy);
-  }
+  td .badge.active   { background: var(--ok-bg);   color: var(--ok); }
+  td .badge.inactive { background: var(--warn-bg);  color: var(--warn); }
 
   /* ── FLOW DIAGRAM ── */
   .flow {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    gap: 0;
-    margin: 16px 0;
+    gap: .4rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
   }
-  .flow-node {
-    background: var(--navy);
-    color: var(--white);
-    padding: 8px 14px;
+  .flow-step {
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 6px;
-    font-size: 12px;
-    font-weight: 500;
-    text-align: center;
-    min-width: 110px;
-    line-height: 1.3;
-  }
-  .flow-node.gold { background: var(--gold); color: var(--navy); }
-  .flow-node.teal { background: var(--teal); }
-  .flow-node.green { background: var(--green); }
-  .flow-arrow {
-    color: var(--gold);
-    font-size: 18px;
-    padding: 0 6px;
-    flex-shrink: 0;
-  }
-
-  /* ── CHECKLIST ── */
-  .checklist { list-style: none; }
-  .checklist li {
-    display: flex;
-    gap: 10px;
-    padding: 8px 0;
-    border-bottom: 1px solid var(--border);
-    font-size: 13px;
-    align-items: flex-start;
-  }
-  .checklist li:last-child { border-bottom: none; }
-  .checklist .chk {
-    width: 18px;
-    height: 18px;
-    border: 2px solid var(--gold);
-    border-radius: 3px;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-  .checklist .chk-text strong { color: var(--navy); font-weight: 600; display: block; }
-  .checklist .chk-text span { color: var(--text-muted); font-size: 12px; }
-
-  /* ── TWO-COL NOTES ── */
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  @media (max-width: 640px) {
-    .two-col { grid-template-columns: 1fr; }
-    .nav-pills { display: none; }
-    .flow { flex-direction: column; align-items: flex-start; }
-    .flow-arrow { transform: rotate(90deg); }
-  }
-
-  /* ── QUICK REF TABLE ── */
-  .quick-ref { width: 100%; border-collapse: collapse; font-size: 12.5px; }
-  .quick-ref th {
-    background: var(--navy);
-    color: var(--gold-light);
-    padding: 9px 12px;
-    text-align: left;
+    padding: .4rem .8rem;
+    font-size: .8rem;
     font-weight: 600;
-    font-size: 11px;
-    letter-spacing: .05em;
-    text-transform: uppercase;
+    color: var(--ink);
+    white-space: nowrap;
   }
-  .quick-ref td { padding: 8px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
-  .quick-ref tbody tr:nth-child(even) td { background: var(--off-white); }
-  .quick-ref .em { color: var(--teal); font-weight: 600; }
+  .flow-arrow { color: var(--ink-soft); font-size: .8rem; }
+
+  /* ── STEP LIST ── */
+  .step-list { display: flex; flex-direction: column; gap: 0; }
+  .sl-item { display: grid; grid-template-columns: 2rem 1fr; gap: 0 .85rem; position: relative; }
+  .sl-item:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: .95rem;
+    top: 2rem;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+  }
+  .sl-num {
+    width: 2rem;
+    height: 2rem;
+    background: var(--accent);
+    color: #fff;
+    font-size: .78rem;
+    font-weight: 700;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+  .sl-body { padding-bottom: 1.25rem; }
+  .sl-body h4 { font-size: .9rem; font-weight: 700; margin: .3rem 0 .2rem; }
+  .sl-body p  { font-size: .83rem; color: var(--ink-soft); }
+
+  /* ── GLOSSARY TABLE ── */
+  .glossary-table td:first-child { font-weight: 700; color: var(--ink); width: 130px; white-space: nowrap; }
 
   /* ── FOOTER ── */
   footer {
-    background: var(--navy);
-    color: var(--gold-light);
     text-align: center;
-    padding: 24px;
-    font-size: 12px;
-    margin-top: 40px;
+    font-size: .75rem;
+    color: var(--ink-soft);
+    padding: 2rem 1rem;
+    border-top: 1px solid var(--border);
   }
-  footer a { color: var(--gold); }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
 
-  /* ── TAG ── */
-  .tag {
-    display: inline-block;
-    background: var(--teal-light);
-    color: var(--teal);
-    border: 1px solid #80cbc4;
-    border-radius: 4px;
-    font-size: 10px;
-    font-weight: 600;
-    padding: 1px 6px;
-    text-transform: uppercase;
-    letter-spacing: .05em;
+  @media (max-width: 600px) {
+    .hero { padding: 2.5rem 1rem 2rem; }
+    .page-wrap { padding: 2rem .9rem 3rem; }
+    nav { height: auto; padding: .75rem 1rem; }
   }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header class="site-header">
-  <div class="brand">Majestic Getaway <span>| Tern Training</span></div>
-  <nav class="nav-pills">
+<!-- NAV -->
+<nav>
+  <a class="brand" href="#">Majestic Getaway | Tern Training</a>
+  <div class="nav-links">
     <a href="#overview">Overview</a>
     <a href="#getting-started">Getting Started</a>
     <a href="#workflows">Workflows</a>
@@ -366,630 +370,426 @@ index.html<!DOCTYPE html>
     <a href="#forms">Forms</a>
     <a href="#trips">Trip Actions</a>
     <a href="#glossary">Glossary</a>
-  </nav>
-</header>
+  </div>
+</nav>
 
 <!-- HERO -->
 <div class="hero">
+  <p class="eyebrow">Majestic Getaway × Tern Training</p>
   <h1>Tern Training Cheat Sheets</h1>
   <p>Your at-a-glance reference for workflows, automations, emails, and trip management inside Tern — built for the Majestic Getaway team.</p>
-  <div class="hero-links">
-    <a href="https://www.tern.travel/learn/courses" target="_blank">📚 Tern &amp; Learn Courses</a>
-    <a href="https://www.tern.travel/learn/checklist/advisor" target="_blank">✅ Getting Started Checklist</a>
-    <a href="https://www.loom.com/share/e6831bf278594729bdafdd25291c3f69" target="_blank">🎬 TBB Workflow Video</a>
-    <a href="https://help.tern.travel/" target="_blank">💬 Tern Support Center</a>
+  <div class="hero-btns">
+    <a class="primary" href="https://www.tern.travel/learn/courses" target="_blank" rel="noopener">📚 Tern &amp; Learn Courses</a>
+    <a class="ghost" href="https://www.tern.travel/learn/checklist/advisor" target="_blank" rel="noopener">✅ Getting Started Checklist</a>
+    <a class="ghost" href="https://www.loom.com/share/e6831bf278594729bdafdd25291c3f69" target="_blank" rel="noopener">🎬 TBB Workflow Video</a>
+    <a class="ghost" href="https://help.tern.travel/" target="_blank" rel="noopener">💬 Tern Support Center</a>
+    <!-- ★ NEW BUTTON -->
+    <a class="highlight" href="service-fees.html">💳 Service Fee Setup →</a>
   </div>
 </div>
 
-<!-- MAIN -->
-<div class="container">
+<!-- PAGE -->
+<div class="page-wrap">
 
-  <!-- ───────────────────────────────────────────
-       SECTION 1 — PLATFORM OVERVIEW
-  ─────────────────────────────────────────── -->
-  <section id="overview">
-    <div class="section-eyebrow">Section 1</div>
-    <h2 class="section-title">Platform Overview</h2>
-    <p class="section-subtitle">How Tern is structured and what lives where.</p>
-    <hr class="divider">
+  <!-- ── SECTION 1: OVERVIEW ── -->
+  <div class="section" id="overview">
+    <p class="section-label">Section 1</p>
+    <h2>Platform Overview</h2>
+    <p class="section-desc">How Tern is structured and what lives where.</p>
 
-    <div class="card-grid cols-3">
-      <div class="card gold-accent">
-        <div class="card-label">Where you work</div>
+    <div class="card-grid">
+      <div class="card">
+        <p class="card-tag">Where you work</p>
         <h3>Trips</h3>
         <p>Each client booking lives here. Tasks, automations, emails, documents, and the client-facing itinerary are all tied to the trip. The trip <strong>status</strong> controls which automations fire automatically.</p>
       </div>
-      <div class="card teal-accent">
-        <div class="card-label">Your toolbox</div>
+      <div class="card">
+        <p class="card-tag">Your toolbox</p>
         <h3>Library</h3>
         <p>Everything reusable lives here: <strong>Workflows</strong>, <strong>Email Templates</strong>, <strong>Photos</strong>, and <strong>Suppliers</strong>. Changes made in Library update all future uses — but <em>not</em> existing trips already in progress.</p>
       </div>
-      <div class="card navy-accent">
-        <div class="card-label">Team communication</div>
+      <div class="card">
+        <p class="card-tag">Team communication</p>
         <h3>Email Tab (per Trip)</h3>
         <p>Connect your Gmail / Outlook to send and track all client emails from inside Tern. Use <strong>Apply Template</strong> to pull from your library. Use <strong>Shared With Me</strong> for TBB cruise-line specific emails.</p>
       </div>
     </div>
 
-    <br>
-
-    <div class="alert alert-gold">
-      <span class="alert-icon">⭐</span>
-      <div><strong>Key rule:</strong> Always <strong>Publish</strong> the trip after making pricing or content changes. A small red dot on the Publish button means the client is seeing an older version. Publishing commits all updates to the client-facing view.</div>
+    <div class="callout star">
+      <span class="icon">⭐</span>
+      <p><strong>Key rule</strong> Always <strong>Publish</strong> the trip after making pricing or content changes. A small red dot on the Publish button means the client is seeing an older version. Publishing commits all updates to the client-facing view.</p>
     </div>
-  </section>
+  </div>
 
-  <!-- ───────────────────────────────────────────
-       SECTION 2 — GETTING STARTED
-  ─────────────────────────────────────────── -->
-  <section id="getting-started">
-    <div class="section-eyebrow">Section 2</div>
-    <h2 class="section-title">Getting Started in Tern</h2>
-    <p class="section-subtitle">Complete these steps before using workflows. See the full checklist at <a href="https://www.tern.travel/learn/checklist/advisor" target="_blank" style="color:var(--teal)">tern.travel/learn/checklist/advisor</a>.</p>
-    <hr class="divider">
+  <hr class="divider" />
 
-    <div class="two-col">
-      <div>
-        <ul class="checklist">
-          <li><div class="chk"></div><div class="chk-text"><strong>Watch Tern &amp; Learn courses</strong><span>tern.travel/learn/courses — complete before the team training call</span></div></li>
-          <li><div class="chk"></div><div class="chk-text"><strong>Watch the TBB Workflow video</strong><span>Loom link in hero above — explains how Travel Biz Boss workflows are structured</span></div></li>
-          <li><div class="chk"></div><div class="chk-text"><strong>Enable 2-Factor Authentication</strong><span>Required to unlock "Payment Due" as a trigger for the 7-day payment reminder</span></div></li>
-          <li><div class="chk"></div><div class="chk-text"><strong>Connect your email</strong><span>Gmail or Outlook — needed to send from inside Tern trip emails</span></div></li>
-          <li><div class="chk"></div><div class="chk-text"><strong>Enable auto-apply on all workflows</strong><span>Already done for Planning. Confirm all others are toggled on in Library → Workflows</span></div></li>
-        </ul>
-      </div>
-      <div>
-        <ul class="checklist">
-          <li><div class="chk"></div><div class="chk-text"><strong>Review all email templates</strong><span>Library → Emails → Non-TBB Emails. Edit any wording before using with clients.</span></div></li>
-          <li><div class="chk"></div><div class="chk-text"><strong>Review TBB cruise-line emails</strong><span>Library → Emails → Shared With Me. Search "royal" for Royal Caribbean deposit/final payment emails.</span></div></li>
-          <li><div class="chk"></div><div class="chk-text"><strong>Set up your two client forms</strong><span>Long Form (international/passport trips) and Short/Quick Form (names, birthdays, email, address, loyalty #)</span></div></li>
-          <li><div class="chk"></div><div class="chk-text"><strong>Delete test/draft trips</strong><span>Lisa confirmed all current trips in Tern were itinerary drafts only — safe to delete</span></div></li>
-          <li><div class="chk"></div><div class="chk-text"><strong>Import priority trips via Chrome extension</strong><span>Japan cruise (Oct 27), Ada Seminario &amp; Zuleika Ayala group — use as training exercise</span></div></li>
-        </ul>
-      </div>
-    </div>
-  </section>
+  <!-- ── SECTION 2: GETTING STARTED ── -->
+  <div class="section" id="getting-started">
+    <p class="section-label">Section 2</p>
+    <h2>Getting Started in Tern</h2>
+    <p class="section-desc">Complete these steps before using workflows. See the full checklist at <a href="https://www.tern.travel/learn/checklist/advisor" target="_blank" rel="noopener">tern.travel/learn/checklist/advisor</a>.</p>
 
-  <!-- ───────────────────────────────────────────
-       SECTION 3 — HOW WORKFLOWS CONNECT
-  ─────────────────────────────────────────── -->
-  <section id="workflows">
-    <div class="section-eyebrow">Section 3</div>
-    <h2 class="section-title">How Workflows Connect</h2>
-    <p class="section-subtitle">Multiple workflows stack on one trip. The right combination depends on trip type and status.</p>
-    <hr class="divider">
+    <ul class="checklist">
+      <li>
+        <div><strong>Watch Tern &amp; Learn courses</strong> tern.travel/learn/courses — complete before the team training call</div>
+      </li>
+      <li>
+        <div><strong>Watch the TBB Workflow video</strong> Loom link in hero above — explains how Travel Biz Boss workflows are structured</div>
+      </li>
+      <li>
+        <div><strong>Enable 2-Factor Authentication</strong> Required to unlock "Payment Due" as a trigger for the 7-day payment reminder</div>
+      </li>
+      <li>
+        <div><strong>Connect your email</strong> Gmail or Outlook — needed to send from inside Tern trip emails</div>
+      </li>
+      <li>
+        <div><strong>Enable auto-apply on all workflows</strong> Already done for Planning. Confirm all others are toggled on in Library → Workflows</div>
+      </li>
+      <li>
+        <div><strong>Review all email templates</strong> Library → Emails → Non-TBB Emails. Edit any wording before using with clients.</div>
+      </li>
+      <li>
+        <div><strong>Review TBB cruise-line emails</strong> Library → Emails → Shared With Me. Search "royal" for Royal Caribbean deposit/final payment emails.</div>
+      </li>
+      <li>
+        <div><strong>Set up your two client forms</strong> Long Form (international/passport trips) and Short/Quick Form (names, birthdays, email, address, loyalty #)</div>
+      </li>
+      <li>
+        <div><strong>Delete test/draft trips</strong> Lisa confirmed all current trips in Tern were itinerary drafts only — safe to delete</div>
+      </li>
+      <li>
+        <div><strong>Import priority trips via Chrome extension</strong> Japan cruise (Oct 27), Ada Seminario &amp; Zuleika Ayala group — use as training exercise</div>
+      </li>
+      <!-- ★ NEW ITEM: SERVICE FEE SETUP -->
+      <li>
+        <div>
+          <strong>Set up Service Fees (Stripe)</strong> Connect your Stripe account to charge clients planning fees directly from Tern. Funds deposit straight to your bank.
+          <br />
+          <a class="fee-btn" href="service-fees.html">💳 Service Fee Setup Guide →</a>
+        </div>
+      </li>
+    </ul>
+  </div>
 
-    <div class="alert alert-teal">
-      <span class="alert-icon">💡</span>
-      <div><strong>The big idea:</strong> Workflows auto-apply based on <em>trip status</em> (Booked, Planning) or <em>trip tags</em> (FIT, Mass Market Cruise). A cruise client typically gets 3 workflows stacked together.</div>
-    </div>
+  <hr class="divider" />
 
-    <br>
+  <!-- ── SECTION 3: WORKFLOWS ── -->
+  <div class="section" id="workflows">
+    <p class="section-label">Section 3</p>
+    <h2>How Workflows Connect</h2>
+    <p class="section-desc">Multiple workflows stack on one trip. The right combination depends on trip type and status.</p>
 
-    <!-- FLOW DIAGRAM -->
-    <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:24px;margin-bottom:24px;">
-      <p style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:14px;">Trip Flow — Status Changes Drive Auto-Apply</p>
-      <div class="flow">
-        <div class="flow-node">New Lead<br><small>Create Trip</small></div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-node gold">Inbound New<br><small>Auto: Workflow fires</small></div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-node teal">Planning<br><small>(FIT / complex trips)</small></div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-node green">Booked<br><small>Payment Reminders +<br>Pre/Post fire</small></div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-node" style="background:#5C6BC0;">Prep for Travel</div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-node" style="background:#7B1E1E;">Traveled ✓</div>
-      </div>
-      <p style="font-size:12px;color:var(--text-muted);margin-top:12px;">⚡ Quick cruises: Skip Planning. Create trip → immediately move to <strong>Booked</strong>. Cruise MASS MKT workflow applies via tag.</p>
+    <div class="callout info">
+      <span class="icon">💡</span>
+      <p><strong>The big idea</strong> Workflows auto-apply based on <em>trip status</em> (Booked, Planning) or <em>trip tags</em> (FIT, Mass Market Cruise). A cruise client typically gets 3 workflows stacked together.</p>
     </div>
 
-    <!-- WORKFLOW STACK TABLE -->
-    <table class="wf-table">
-      <thead>
-        <tr>
-          <th>Workflow</th>
-          <th>Who Gets It</th>
-          <th>How It Applies</th>
-          <th>Key Automations</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>00. Inbound | New Client</strong></td>
-          <td>Brand-new clients only</td>
-          <td><span class="badge badge-auto">Auto — Status: Inbound New</span></td>
-          <td>Tern account creation email, Travel Insurance email (3 days after)</td>
-        </tr>
-        <tr>
-          <td><strong>01. Inbound | Existing Client</strong></td>
-          <td>Returning clients</td>
-          <td><span class="badge badge-auto">Auto — Status: Inbound Existing</span></td>
-          <td>Same as above. <strong>⚠️ Deactivate the Tern account automation by Dec 1, 2026</strong></td>
-        </tr>
-        <tr>
-          <td><strong>02. All Trips | Planning</strong></td>
-          <td>FIT, complex multi-destination, pre/post cruises</td>
-          <td><span class="badge badge-auto">Auto — Status: Planning</span></td>
-          <td>Proposal Approved email (only fires if client clicks Approve)</td>
-        </tr>
-        <tr>
-          <td><strong>03. All Trips | Payment Reminders</strong></td>
-          <td>All trips (cruise + FIT)</td>
-          <td><span class="badge badge-auto">Auto — Status: Booked</span></td>
-          <td>14-day reminder, 2-day reminder, 7-day (pending 2FA setup), Supplier payment prompt</td>
-        </tr>
-        <tr>
-          <td><strong>04. All Trips | Booked (pre/post)</strong></td>
-          <td>All trips</td>
-          <td><span class="badge badge-auto">Auto — Status: Booked</span></td>
-          <td>Bon Voyage (1 day before), Arrival Check-In, Welcome Home Survey, 6-Month Post-Travel Check-In</td>
-        </tr>
-        <tr>
-          <td><strong>Cruise | Mass Market Booked</strong></td>
-          <td>Mass market cruises (Royal Caribbean, Carnival, etc.)</td>
-          <td><span class="badge badge-auto">Auto — Tag: Mass Market Cruise</span></td>
-          <td>180-day, 90-day, 60-day, 30-day, Excursion (14 days post-booking), Final Documents, Check-In Reminder, Departure Prep</td>
-        </tr>
-        <tr>
-          <td><strong>FIT | Booked</strong></td>
-          <td>FIT / custom land trips</td>
-          <td><span class="badge badge-auto">Auto — Tag: FIT</span></td>
-          <td>90-day check-in, 45-day check-in &amp; profile refresh, 48-hour flight check-in, Arrival Day</td>
-        </tr>
-        <tr>
-          <td><strong>Premium Lux Cruise</strong> <span class="tag">Coming Soon</span></td>
-          <td>Explora, luxury cruise lines</td>
-          <td><span class="badge badge-conditional">Auto — Tag: Premium Lux Cruise</span></td>
-          <td>Mirror of Mass Market with premium-specific language. In progress — Katie building based on Mass Market edits.</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <br>
-
-    <div class="two-col">
-      <div class="alert alert-warn">
-        <span class="alert-icon">⚠️</span>
-        <div><strong>Quick Cruise vs. Planning:</strong> If it's a straightforward Royal Caribbean booking, skip Planning entirely. Create the trip → mark Booked immediately → add the Mass Market Cruise tag. Payment Reminders + Booked Pre/Post + Cruise workflow all fire automatically.</div>
-      </div>
-      <div class="alert alert-green">
-        <span class="alert-icon">✅</span>
-        <div><strong>Multiple workflows stack:</strong> A cruise client can (and should) have All Trips Booked + Cruise Mass Market running simultaneously. Add the cruise tag <em>after</em> moving to Booked status to trigger both.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ───────────────────────────────────────────
-       SECTION 4 — CRUISE MASS MARKET WORKFLOW
-  ─────────────────────────────────────────── -->
-  <section id="cruise">
-    <div class="section-eyebrow">Section 4</div>
-    <h2 class="section-title">Cruise Mass Market — Full Workflow Reference</h2>
-    <p class="section-subtitle">Tasks you do manually + automations that fire on their own. Based on the TBB Mass Market Cruise Booked workflow, customized for Majestic Getaway.</p>
-    <hr class="divider">
-
-    <div class="alert alert-gold">
-      <span class="alert-icon">⭐</span>
-      <div><strong>Do on Day 0 (immediately when workflow is added):</strong> Check automations are correctly set up, send the cruise-specific deposit email, and communicate any dietary/medical/special occasion needs to the supplier.</div>
+    <p style="font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:.65rem;">Trip Flow — Status Changes Drive Auto-Apply</p>
+    <div class="flow">
+      <div class="flow-step">New Lead<br /><span style="font-weight:400;font-size:.75rem;">Create Trip</span></div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step">Inbound New<br /><span style="font-weight:400;font-size:.75rem;">Auto: Workflow fires</span></div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step">Planning<br /><span style="font-weight:400;font-size:.75rem;">(FIT / complex trips)</span></div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step">Booked<br /><span style="font-weight:400;font-size:.75rem;">Payment Reminders + Pre/Post fire</span></div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step">Prep for Travel</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step">Traveled ✓</div>
     </div>
 
-    <br>
+    <div class="callout warn" style="margin-bottom:1.25rem;">
+      <span class="icon">⚡</span>
+      <p>Quick cruises: Skip Planning. Create trip → immediately move to <strong>Booked</strong>. Cruise MASS MKT workflow applies via tag.</p>
+    </div>
 
-    <h3 style="color:var(--navy);font-family:'Cormorant Garamond',serif;font-size:20px;margin-bottom:12px;">📋 Manual Tasks (Your To-Do List)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Workflow</th>
+            <th>Who Gets It</th>
+            <th>How It Applies</th>
+            <th>Key Automations</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>00. Inbound | New Client</strong></td>
+            <td>Brand-new clients only</td>
+            <td>Auto — Status: Inbound New</td>
+            <td>Tern account creation email, Travel Insurance email (3 days after)</td>
+          </tr>
+          <tr>
+            <td><strong>01. Inbound | Existing Client</strong></td>
+            <td>Returning clients</td>
+            <td>Auto — Status: Inbound Existing</td>
+            <td>Same as above. ⚠️ Deactivate the Tern account automation by Dec 1, 2026</td>
+          </tr>
+          <tr>
+            <td><strong>02. All Trips | Planning</strong></td>
+            <td>FIT, complex multi-destination, pre/post cruises</td>
+            <td>Auto — Status: Planning</td>
+            <td>Proposal Approved email (only fires if client clicks Approve)</td>
+          </tr>
+          <tr>
+            <td><strong>03. All Trips | Payment Reminders</strong></td>
+            <td>All trips (cruise + FIT)</td>
+            <td>Auto — Status: Booked</td>
+            <td>14-day reminder, 2-day reminder, 7-day (pending 2FA setup), Supplier payment prompt</td>
+          </tr>
+          <tr>
+            <td><strong>04. All Trips | Booked (pre/post)</strong></td>
+            <td>All trips</td>
+            <td>Auto — Status: Booked</td>
+            <td>Bon Voyage (1 day before), Arrival Check-In, Welcome Home Survey, 6-Month Post-Travel Check-In</td>
+          </tr>
+          <tr>
+            <td><strong>Cruise | Mass Market Booked</strong></td>
+            <td>Mass market cruises (Royal Caribbean, Carnival, etc.)</td>
+            <td>Auto — Tag: Mass Market Cruise</td>
+            <td>180-day, 90-day, 60-day, 30-day, Excursion (14 days post-booking), Final Documents, Check-In Reminder, Departure Prep</td>
+          </tr>
+          <tr>
+            <td><strong>FIT | Booked</strong></td>
+            <td>FIT / custom land trips</td>
+            <td>Auto — Tag: FIT</td>
+            <td>90-day check-in, 45-day check-in &amp; profile refresh, 48-hour flight check-in, Arrival Day</td>
+          </tr>
+          <tr>
+            <td><strong>Premium Lux Cruise</strong> <span style="font-size:.75rem;color:var(--ink-soft);">Coming Soon</span></td>
+            <td>Explora, luxury cruise lines</td>
+            <td>Auto — Tag: Premium Lux Cruise</td>
+            <td>Mirror of Mass Market with premium-specific language. In progress — Katie building based on Mass Market edits.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-    <table class="wf-table" style="margin-bottom:24px;">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Task</th>
-          <th>When</th>
-          <th>Notes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td><strong>Double-check ALL automations</strong> — active/inactive status and trigger dates</td>
-          <td>Day 0</td>
-          <td>Review 5 automations: insurance, VISA, flight info, final docs, check-in reminder</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td><strong>Send deposit paid email</strong> (cruise-line specific)</td>
-          <td>Day 0</td>
-          <td>Manual send. Find in Library → Emails → Shared With Me. Search cruise line name.</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td><strong>Communicate medical/dietary/mobility needs + special occasions</strong> to supplier</td>
-          <td>Day 1</td>
-          <td>Birthday, anniversary, wheelchair, allergies, etc.</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td><strong>Customize Bon Voyage email</strong> (FIT &amp; international cruises)</td>
-          <td>15 days before trip</td>
-          <td>Task fires as reminder with email notification ON. Deactivate the auto Bon Voyage and send personal email instead. Include emergency contact details and hotel info.</td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td><strong>Activate VISA/ETIA automation</strong> (if destination requires)</td>
-          <td>72 days before trip</td>
-          <td>Only activate if VISA or ETIA is required. Edit trigger date first.</td>
-        </tr>
-        <tr>
-          <td>6</td>
-          <td><strong>Activate Flight Request automation</strong> (if client booked own air)</td>
-          <td>72 days before trip</td>
-          <td>Only if you need to confirm transfers. Ask client for flight details → add to itinerary if desired.</td>
-        </tr>
-        <tr>
-          <td>7</td>
-          <td><strong>Verify Virtuoso amenities showing</strong> on reservation</td>
-          <td>35 days before trip</td>
-          <td>Confirm all perks are loaded with supplier</td>
-        </tr>
-        <tr>
-          <td>8</td>
-          <td><strong>Activate Final Documents automation</strong></td>
-          <td>35 days before trip</td>
-          <td>Only activate once cruise line releases final paperwork</td>
-        </tr>
-        <tr>
-          <td>9</td>
-          <td><strong>Send OBC / client gift</strong></td>
-          <td>14 days before trip</td>
-          <td>Onboard credit — confirm amount and apply to reservation</td>
-        </tr>
-        <tr>
-          <td>10</td>
-          <td><strong>Send Paid In Full email</strong> (cruise-line specific)</td>
-          <td>When final payment confirmed</td>
-          <td>Manual trigger — use Shared With Me email template</td>
-        </tr>
-        <tr>
-          <td>11</td>
-          <td><strong>Add post-trip follow-up workflow</strong></td>
-          <td>7 days after trip ends</td>
-          <td>Apply post-trip workflow in Tern to capture feedback and referrals</td>
-        </tr>
-        <tr>
-          <td>12</td>
-          <td><strong>Verify commission received</strong></td>
-          <td>45 days after trip ends</td>
-          <td>Check with supplier. Log in Tern and cross-reference with Sion.</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="callout warn" style="margin-top:1rem;">
+      <span class="icon">⚠️</span>
+      <p><strong>Quick Cruise vs. Planning</strong> If it's a straightforward Royal Caribbean booking, skip Planning entirely. Create the trip → mark Booked immediately → add the Mass Market Cruise tag. Payment Reminders + Booked Pre/Post + Cruise workflow all fire automatically.</p>
+    </div>
+    <div class="callout ok">
+      <span class="icon">✅</span>
+      <p><strong>Multiple workflows stack</strong> A cruise client can (and should) have All Trips Booked + Cruise Mass Market running simultaneously. Add the cruise tag <em>after</em> moving to Booked status to trigger both.</p>
+    </div>
+  </div>
 
-    <h3 style="color:var(--navy);font-family:'Cormorant Garamond',serif;font-size:20px;margin-bottom:12px;">⚡ Automated Emails (Fire Without Any Action From You)</h3>
+  <hr class="divider" />
 
-    <table class="wf-table">
-      <thead>
-        <tr>
-          <th>Email</th>
-          <th>Timing</th>
-          <th>Status</th>
-          <th>Notes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>180-Day Pre-Cruise</strong></td>
-          <td>180 days before trip</td>
-          <td><span class="badge badge-active">Active</span></td>
-          <td>General early check-in. Already active — no action needed.</td>
-        </tr>
-        <tr>
-          <td><strong>Excursion Booking Prompt</strong></td>
-          <td>14 days after booking (Booked status)</td>
-          <td><span class="badge badge-active">Active</span></td>
-          <td>Replaced the 90-day slot. Points clients to Lisa's white-label excursion site. Goes out shortly after deposit — ideal timing to book shore excursions.</td>
-        </tr>
-        <tr>
-          <td><strong>90-Day Check-In</strong> <span class="tag">Rewrite needed</span></td>
-          <td>90 days before trip</td>
-          <td><span class="badge badge-active">Active</span></td>
-          <td>Write new content for this slot (excursion content moved out). Email Lisa to draft — Katie will load it.</td>
-        </tr>
-        <tr>
-          <td><strong>80-Day Communication Before Your Trip</strong></td>
-          <td>80 days before trip</td>
-          <td><span class="badge badge-active">Active</span></td>
-          <td>Already active — no action needed.</td>
-        </tr>
-        <tr>
-          <td><strong>VISA / ETIA Requirements</strong></td>
-          <td>65 days before trip</td>
-          <td><span class="badge badge-inactive">Inactive</span></td>
-          <td>Only activate if destination requires VISA or ETIA. Edit email before activating.</td>
-        </tr>
-        <tr>
-          <td><strong>60-Day Pre-Cruise</strong></td>
-          <td>60 days before trip</td>
-          <td><span class="badge badge-active">Active</span></td>
-          <td>No action needed.</td>
-        </tr>
-        <tr>
-          <td><strong>Money Matters: Cruise Edition</strong></td>
-          <td>45 days before trip</td>
-          <td><span class="badge badge-active">Active</span></td>
-          <td>Payment reminders. 14/7/2-day schedule should be configured.</td>
-        </tr>
-        <tr>
-          <td><strong>30-Day Check-In + Check-In Reminder</strong></td>
-          <td>30 days before trip</td>
-          <td><span class="badge badge-active">Active</span></td>
-          <td>Combined from the 30-day pre-cruise and the check-in reminder into one email. No action needed.</td>
-        </tr>
-        <tr>
-          <td><strong>What NOT to Bring on a Cruise</strong></td>
-          <td>25 days before trip</td>
-          <td><span class="badge badge-active">Active</span></td>
-          <td>Mark as first-timers only in notes. Consider deactivating for seasoned cruisers.</td>
-        </tr>
-        <tr>
-          <td><strong>Final Documents &amp; Itinerary Link</strong></td>
-          <td>20 days before trip</td>
-          <td><span class="badge badge-inactive">Inactive</span></td>
-          <td>Activate once cruise line releases final paperwork. Now includes luggage tag note and print recommendation.</td>
-        </tr>
-        <tr>
-          <td><strong>On-Board Booking Prompt</strong></td>
-          <td>14 days before trip</td>
-          <td><span class="badge badge-active">Active</span></td>
-          <td>⚠️ Deactivate manually for Carnival sailings.</td>
-        </tr>
-        <tr>
-          <td><strong>Departure Prep</strong></td>
-          <td>5 days before trip</td>
-          <td><span class="badge badge-active">Active</span></td>
-          <td>Includes a note about luggage tags (same reminder as Final Documents).</td>
-        </tr>
-        <tr>
-          <td><strong>Bon Voyage</strong></td>
-          <td>1 day before trip (default)</td>
-          <td><span class="badge badge-active">Active</span></td>
-          <td>For domestic/quick cruises this is fine. For FIT or international: <strong>deactivate this and send a custom personal email instead</strong> (task fires 15 days before as reminder).</td>
-        </tr>
-        <tr>
-          <td><strong>Welcome Home</strong> (in All Trips Booked)</td>
-          <td>3 days after trip ends</td>
-          <td><span class="badge badge-active">Active</span></td>
-          <td>Lives in All Trips Booked workflow, not Cruise workflow. Applies automatically.</td>
-        </tr>
-        <tr>
-          <td><strong>6-Month Post-Travel Check-In</strong> (in All Trips Booked)</td>
-          <td>180 days after trip ends</td>
-          <td><span class="badge badge-inactive">Inactive</span></td>
-          <td>Activate per trip. Uses the "Can you believe it's been 6 months?" email.</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
+  <!-- ── SECTION 4: CRUISE WORKFLOW ── -->
+  <div class="section" id="cruise">
+    <p class="section-label">Section 4</p>
+    <h2>Cruise Mass Market — Full Workflow Reference</h2>
+    <p class="section-desc">Tasks you do manually + automations that fire on their own. Based on the TBB Mass Market Cruise Booked workflow, customized for Majestic Getaway.</p>
 
-  <!-- ───────────────────────────────────────────
-       SECTION 5 — MANAGING EMAILS IN TERN
-  ─────────────────────────────────────────── -->
-  <section id="emails">
-    <div class="section-eyebrow">Section 5</div>
-    <h2 class="section-title">Managing Emails in Tern</h2>
-    <p class="section-subtitle">Where emails live, how to edit them, and what the difference is between template types.</p>
-    <hr class="divider">
+    <div class="callout star">
+      <span class="icon">⭐</span>
+      <p><strong>Do on Day 0 (immediately when workflow is added)</strong> Check automations are correctly set up, send the cruise-specific deposit email, and communicate any dietary/medical/special occasion needs to the supplier.</p>
+    </div>
 
-    <div class="card-grid cols-2" style="margin-bottom:20px;">
-      <div class="card teal-accent">
-        <div class="card-label">Your editable templates</div>
+    <h3 style="margin-bottom:.75rem;">📋 Manual Tasks (Your To-Do List)</h3>
+    <div class="table-wrap" style="margin-bottom:2rem;">
+      <table>
+        <thead>
+          <tr><th>#</th><th>Task</th><th>When</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td><strong>Double-check ALL automations</strong> — active/inactive status and trigger dates</td><td>Day 0</td><td>Review 5 automations: insurance, VISA, flight info, final docs, check-in reminder</td></tr>
+          <tr><td>2</td><td><strong>Send deposit paid email</strong> (cruise-line specific)</td><td>Day 0</td><td>Manual send. Find in Library → Emails → Shared With Me. Search cruise line name.</td></tr>
+          <tr><td>3</td><td><strong>Communicate medical/dietary/mobility needs + special occasions</strong> to supplier</td><td>Day 1</td><td>Birthday, anniversary, wheelchair, allergies, etc.</td></tr>
+          <tr><td>4</td><td><strong>Customize Bon Voyage email</strong> (FIT &amp; international cruises)</td><td>15 days before trip</td><td>Task fires as reminder with email notification ON. Deactivate the auto Bon Voyage and send personal email instead. Include emergency contact details and hotel info.</td></tr>
+          <tr><td>5</td><td><strong>Activate VISA/ETIA automation</strong> (if destination requires)</td><td>72 days before trip</td><td>Only activate if VISA or ETIA is required. Edit trigger date first.</td></tr>
+          <tr><td>6</td><td><strong>Activate Flight Request automation</strong> (if client booked own air)</td><td>72 days before trip</td><td>Only if you need to confirm transfers. Ask client for flight details → add to itinerary if desired.</td></tr>
+          <tr><td>7</td><td><strong>Verify Virtuoso amenities showing</strong> on reservation</td><td>35 days before trip</td><td>Confirm all perks are loaded with supplier</td></tr>
+          <tr><td>8</td><td><strong>Activate Final Documents automation</strong></td><td>35 days before trip</td><td>Only activate once cruise line releases final paperwork</td></tr>
+          <tr><td>9</td><td><strong>Send OBC / client gift</strong></td><td>14 days before trip</td><td>Onboard credit — confirm amount and apply to reservation</td></tr>
+          <tr><td>10</td><td><strong>Send Paid In Full email</strong> (cruise-line specific)</td><td>When final payment confirmed</td><td>Manual trigger — use Shared With Me email template</td></tr>
+          <tr><td>11</td><td><strong>Add post-trip follow-up workflow</strong></td><td>7 days after trip ends</td><td>Apply post-trip workflow in Tern to capture feedback and referrals</td></tr>
+          <tr><td>12</td><td><strong>Verify commission received</strong></td><td>45 days after trip ends</td><td>Check with supplier. Log in Tern and cross-reference with Sion.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-bottom:.75rem;">⚡ Automated Emails (Fire Without Any Action From You)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Email</th><th>Timing</th><th>Status</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>180-Day Pre-Cruise</strong></td><td>180 days before trip</td><td><span class="badge active">Active</span></td><td>General early check-in. Already active — no action needed.</td></tr>
+          <tr><td><strong>Excursion Booking Prompt</strong></td><td>14 days after booking (Booked status)</td><td><span class="badge active">Active</span></td><td>Replaced the 90-day slot. Points clients to Lisa's white-label excursion site. Goes out shortly after deposit — ideal timing to book shore excursions.</td></tr>
+          <tr><td><strong>90-Day Check-In</strong> <em>Rewrite needed</em></td><td>90 days before trip</td><td><span class="badge active">Active</span></td><td>Write new content for this slot (excursion content moved out). Email Lisa to draft — Katie will load it.</td></tr>
+          <tr><td><strong>80-Day Communication Before Your Trip</strong></td><td>80 days before trip</td><td><span class="badge active">Active</span></td><td>Already active — no action needed.</td></tr>
+          <tr><td><strong>VISA / ETIA Requirements</strong></td><td>65 days before trip</td><td><span class="badge inactive">Inactive</span></td><td>Only activate if destination requires VISA or ETIA. Edit email before activating.</td></tr>
+          <tr><td><strong>60-Day Pre-Cruise</strong></td><td>60 days before trip</td><td><span class="badge active">Active</span></td><td>No action needed.</td></tr>
+          <tr><td><strong>Money Matters: Cruise Edition</strong></td><td>45 days before trip</td><td><span class="badge active">Active</span></td><td>Payment reminders. 14/7/2-day schedule should be configured.</td></tr>
+          <tr><td><strong>30-Day Check-In + Check-In Reminder</strong></td><td>30 days before trip</td><td><span class="badge active">Active</span></td><td>Combined from the 30-day pre-cruise and the check-in reminder into one email. No action needed.</td></tr>
+          <tr><td><strong>What NOT to Bring on a Cruise</strong></td><td>25 days before trip</td><td><span class="badge active">Active</span></td><td>Mark as first-timers only in notes. Consider deactivating for seasoned cruisers.</td></tr>
+          <tr><td><strong>Final Documents &amp; Itinerary Link</strong></td><td>20 days before trip</td><td><span class="badge inactive">Inactive</span></td><td>Activate once cruise line releases final paperwork. Now includes luggage tag note and print recommendation.</td></tr>
+          <tr><td><strong>On-Board Booking Prompt</strong></td><td>14 days before trip</td><td><span class="badge active">Active</span></td><td>⚠️ Deactivate manually for Carnival sailings.</td></tr>
+          <tr><td><strong>Departure Prep</strong></td><td>5 days before trip</td><td><span class="badge active">Active</span></td><td>Includes a note about luggage tags (same reminder as Final Documents).</td></tr>
+          <tr><td><strong>Bon Voyage</strong></td><td>1 day before trip (default)</td><td><span class="badge active">Active</span></td><td>For domestic/quick cruises this is fine. For FIT or international: <strong>deactivate this and send a custom personal email instead</strong> (task fires 15 days before as reminder).</td></tr>
+          <tr><td><strong>Welcome Home</strong> (in All Trips Booked)</td><td>3 days after trip ends</td><td><span class="badge active">Active</span></td><td>Lives in All Trips Booked workflow, not Cruise workflow. Applies automatically.</td></tr>
+          <tr><td><strong>6-Month Post-Travel Check-In</strong> (in All Trips Booked)</td><td>180 days after trip ends</td><td><span class="badge inactive">Inactive</span></td><td>Activate per trip. Uses the "Can you believe it's been 6 months?" email.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ── SECTION 5: EMAILS ── -->
+  <div class="section" id="emails">
+    <p class="section-label">Section 5</p>
+    <h2>Managing Emails in Tern</h2>
+    <p class="section-desc">Where emails live, how to edit them, and what the difference is between template types.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <p class="card-tag">Your editable templates</p>
         <h3>Non-TBB Emails</h3>
         <p>Library → Emails → <strong>Non-TBB Emails</strong>. These are your custom templates (Arrival Check-In, Bon Voyage, Welcome Home, etc.). Edit here and click <strong>"Apply Updates"</strong> to push changes to all workflows using that template.</p>
       </div>
-      <div class="card gold-accent">
-        <div class="card-label">Cruise-line specific</div>
+      <div class="card">
+        <p class="card-tag">Cruise-line specific</p>
         <h3>Shared With Me (TBB)</h3>
         <p>Library → Emails → <strong>Shared With Me</strong>. Search the cruise line name (e.g. "royal"). These are maintained by Travel Biz Boss and update automatically — <em>don't</em> save your own copy or you'll lose the auto-updates. Includes deposit &amp; final payment emails per cruise line.</p>
       </div>
-      <div class="card warn-accent">
-        <div class="card-label">Cruise workflow emails</div>
+      <div class="card">
+        <p class="card-tag">Cruise workflow emails</p>
         <h3>Edit Directly in Workflow</h3>
         <p>The 180-day, 90-day, 60-day, etc. cruise emails are <em>not</em> in the email template library — they live inside the workflow itself. Edit them via Library → Workflows → Cruise Mass Market Booked → click the automation.</p>
       </div>
-      <div class="card green-accent">
-        <div class="card-label">Sending ad-hoc emails</div>
+      <div class="card">
+        <p class="card-tag">Sending ad-hoc emails</p>
         <h3>Per-Trip Email Tab</h3>
         <p>Open a trip → click <strong>Email</strong> in the left nav → click <strong>New</strong> → click <strong>Apply Template</strong>. For cruise deposit/final payment: click <strong>Shared With Me</strong> and search the cruise line.</p>
       </div>
     </div>
 
-    <div class="alert alert-gold">
-      <span class="alert-icon">📌</span>
-      <div><strong>Remember:</strong> Editing an email in the Library updates the template globally. Editing an email inside a specific trip's automation only changes it for that trip. Use trip-level edits for personalization; use Library edits for permanent changes you want everywhere.</div>
+    <div class="callout info">
+      <span class="icon">📌</span>
+      <p><strong>Remember</strong> Editing an email in the Library updates the template globally. Editing an email inside a specific trip's automation only changes it for that trip. Use trip-level edits for personalization; use Library edits for permanent changes you want everywhere.</p>
     </div>
 
-    <br>
-
-    <h3 style="color:var(--navy);font-family:'Cormorant Garamond',serif;font-size:18px;margin-bottom:12px;">How to Send a Cruise Deposit Email (Step-by-Step)</h3>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-body"><h4>Open the client's trip</h4><p>Navigate to Trips → find the client.</p></div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-body"><h4>Click Email in the left nav</h4><p>If your email isn't connected yet, connect Gmail or Outlook in Settings first.</p></div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-body"><h4>Click New → Apply Template</h4><p>The template picker opens.</p></div>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <div class="step-body"><h4>Click "Shared With Me"</h4><p>Tab at the top of the template picker.</p></div>
-      </div>
-      <div class="step">
-        <div class="step-num">5</div>
-        <div class="step-body"><h4>Search the cruise line</h4><p>Type <span class="code">royal</span> for Royal Caribbean. Select the deposit template.</p></div>
-      </div>
-      <div class="step">
-        <div class="step-num">6</div>
-        <div class="step-body"><h4>Personalize if needed, then send</h4><p>Check the "Send me a copy" checkbox if desired. Hit Send.</p></div>
-      </div>
+    <h3 style="margin: 1.5rem 0 .75rem;">How to Send a Cruise Deposit Email (Step-by-Step)</h3>
+    <div class="step-list">
+      <div class="sl-item"><div class="sl-num">1</div><div class="sl-body"><h4>Open the client's trip</h4><p>Navigate to Trips → find the client.</p></div></div>
+      <div class="sl-item"><div class="sl-num">2</div><div class="sl-body"><h4>Click Email in the left nav</h4><p>If your email isn't connected yet, connect Gmail or Outlook in Settings first.</p></div></div>
+      <div class="sl-item"><div class="sl-num">3</div><div class="sl-body"><h4>Click New → Apply Template</h4><p>The template picker opens.</p></div></div>
+      <div class="sl-item"><div class="sl-num">4</div><div class="sl-body"><h4>Click "Shared With Me"</h4><p>Tab at the top of the template picker.</p></div></div>
+      <div class="sl-item"><div class="sl-num">5</div><div class="sl-body"><h4>Search the cruise line</h4><p>Type <em>royal</em> for Royal Caribbean. Select the deposit template.</p></div></div>
+      <div class="sl-item"><div class="sl-num">6</div><div class="sl-body"><h4>Personalize if needed, then send</h4><p>Check the "Send me a copy" checkbox if desired. Hit Send.</p></div></div>
     </div>
-  </section>
+  </div>
 
-  <!-- ───────────────────────────────────────────
-       SECTION 6 — CLIENT FORMS
-  ─────────────────────────────────────────── -->
-  <section id="forms">
-    <div class="section-eyebrow">Section 6</div>
-    <h2 class="section-title">Client Forms</h2>
-    <p class="section-subtitle">Two forms for two scenarios. Send manually from the trip — do not automate for existing clients.</p>
-    <hr class="divider">
+  <hr class="divider" />
 
-    <div class="two-col">
-      <div class="card gold-accent">
-        <div class="card-label">For international / passport trips</div>
+  <!-- ── SECTION 6: FORMS ── -->
+  <div class="section" id="forms">
+    <p class="section-label">Section 6</p>
+    <h2>Client Forms</h2>
+    <p class="section-desc">Two forms for two scenarios. Send manually from the trip — do not automate for existing clients.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <p class="card-tag">For international / passport trips</p>
         <h3>Long Form</h3>
-        <p style="margin-bottom:10px;">Use for FIT, international cruises, and any trip requiring passport details. Captures everything needed for complex trip planning.</p>
-        <p><strong>Includes:</strong> Name, DOB, email, home address, loyalty numbers, passport info (valid dates, pages), food allergies, special requests, travel history, preferences.</p>
+        <p>Use for FIT, international cruises, and any trip requiring passport details. Captures everything needed for complex trip planning.</p>
+        <p style="margin-top:.5rem;"><strong>Includes:</strong> Name, DOB, email, home address, loyalty numbers, passport info (valid dates, pages), food allergies, special requests, travel history, preferences.</p>
       </div>
-      <div class="card teal-accent">
-        <div class="card-label">For quick / domestic / mass-market cruises</div>
+      <div class="card">
+        <p class="card-tag">For quick / domestic / mass-market cruises</p>
         <h3>Short / Quick Form</h3>
-        <p style="margin-bottom:10px;">Use for straightforward mass-market cruises, hotel-only bookings, and clients you know well.</p>
-        <p><strong>Includes ONLY:</strong> Names (all guests in cabin), dates of birth, email addresses, home addresses, loyalty/rewards numbers.</p>
+        <p>Use for straightforward mass-market cruises, hotel-only bookings, and clients you know well.</p>
+        <p style="margin-top:.5rem;"><strong>Includes ONLY:</strong> Names (all guests in cabin), dates of birth, email addresses, home addresses, loyalty/rewards numbers.</p>
       </div>
     </div>
 
-    <br>
-
-    <div class="alert alert-warn">
-      <span class="alert-icon">⚠️</span>
-      <div><strong>Do NOT auto-send the Long Form to existing clients.</strong> The Long Form automation is turned off in the Inbound New workflow and is not included in Inbound Existing. Send it manually via the task prompt, and choose which form is appropriate. Sending a profile form to a 10-year client who already has everything on file feels insulting.</div>
+    <div class="callout warn">
+      <span class="icon">⚠️</span>
+      <p><strong>Do NOT auto-send the Long Form to existing clients.</strong> The Long Form automation is turned off in the Inbound New workflow and is not included in Inbound Existing. Send it manually via the task prompt, and choose which form is appropriate. Sending a profile form to a 10-year client who already has everything on file feels insulting.</p>
     </div>
-  </section>
+  </div>
 
-  <!-- ───────────────────────────────────────────
-       SECTION 7 — TRIP ACTIONS QUICK REF
-  ─────────────────────────────────────────── -->
-  <section id="trips">
-    <div class="section-eyebrow">Section 7</div>
-    <h2 class="section-title">Common Trip Actions — Quick Reference</h2>
-    <p class="section-subtitle">What to do and where to find it for the most common scenarios.</p>
-    <hr class="divider">
+  <hr class="divider" />
 
-    <table class="quick-ref">
-      <thead>
-        <tr>
-          <th>Scenario</th>
-          <th>What to Do</th>
-          <th>Where</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>New client books a cruise</strong></td>
-          <td>Create trip → Set status to Inbound New → then Booked → Add tag "Mass Market Cruise" → Send deposit email manually</td>
-          <td>Trips → + New → Status dropdown → Tags field → Email tab</td>
-        </tr>
-        <tr>
-          <td><strong>Returning client books a cruise</strong></td>
-          <td>Create trip → Set status to Inbound Existing → then Booked → Add tag → Send deposit email</td>
-          <td>Same as above</td>
-        </tr>
-        <tr>
-          <td><strong>FIT / complex land trip</strong></td>
-          <td>Create trip → Inbound New/Existing → Planning (triggers planning workflow) → Booked when deposit paid → Add FIT tag</td>
-          <td>Trips → Status dropdown moves trip through stages</td>
-        </tr>
-        <tr>
-          <td><strong>Change an automation trigger date</strong> (for a specific trip)</td>
-          <td>Open trip → Automations (left nav) → Click automation → Deactivate → Edit trigger date → Reactivate</td>
-          <td>Trip → Automations</td>
-        </tr>
-        <tr>
-          <td><strong>Client pays — stop payment reminders</strong></td>
-          <td>Log the payment in Tern → Publish the trip. This prevents further payment reminder emails.</td>
-          <td>Trip → Payments tab → Publish button (red dot = unpublished changes)</td>
-        </tr>
-        <tr>
-          <td><strong>FIT client — customize Bon Voyage</strong></td>
-          <td>Deactivate the auto Bon Voyage in the trip's automations → Send a personal email instead (task fires 15 days before as reminder)</td>
-          <td>Trip → Automations → Bon Voyage → Deactivate</td>
-        </tr>
-        <tr>
-          <td><strong>Carnival cruise — remove on-board booking prompt</strong></td>
-          <td>Go to the trip's automations → find "On Board Booking Prompt" → Deactivate</td>
-          <td>Trip → Automations</td>
-        </tr>
-        <tr>
-          <td><strong>Destination requires VISA / ETIA</strong></td>
-          <td>Edit the VISA automation with destination-specific details → Activate it (around 72 days before trip)</td>
-          <td>Library → Workflows → Cruise Mass Market → VISA automation (or trip-level)</td>
-        </tr>
-        <tr>
-          <td><strong>Client booked their own flights — need to confirm transfers</strong></td>
-          <td>Activate the Flight Info Request automation (around 72 days before). Ask client for flight details.</td>
-          <td>Trip → Automations → Flight Info Request</td>
-        </tr>
-        <tr>
-          <td><strong>Final paperwork released by cruise line</strong></td>
-          <td>Activate the Final Documents automation at the trip level</td>
-          <td>Trip → Automations → Final Documents</td>
-        </tr>
-        <tr>
-          <td><strong>Group booking (two cabins together)</strong></td>
-          <td>Set up as a group in Tern. Use the Ada Seminario / Zuleika Ayala booking as the team training example.</td>
-          <td>Trips → Group setup (covered in team training session)</td>
-        </tr>
-        <tr>
-          <td><strong>Import existing trip from TravelJoy</strong></td>
-          <td>Use the Tern Chrome extension to bulk import. Then fine-tune in Tern. Good training exercise for Allison / Tabatha.</td>
-          <td>Chrome Extension → TravelJoy import</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
+  <!-- ── SECTION 7: TRIP ACTIONS ── -->
+  <div class="section" id="trips">
+    <p class="section-label">Section 7</p>
+    <h2>Common Trip Actions — Quick Reference</h2>
+    <p class="section-desc">What to do and where to find it for the most common scenarios.</p>
 
-  <!-- ───────────────────────────────────────────
-       SECTION 8 — GLOSSARY
-  ─────────────────────────────────────────── -->
-  <section id="glossary">
-    <div class="section-eyebrow">Section 8</div>
-    <h2 class="section-title">Glossary</h2>
-    <p class="section-subtitle">Key terms used in Tern and in these cheat sheets.</p>
-    <hr class="divider">
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Scenario</th><th>What to Do</th><th>Where</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>New client books a cruise</strong></td><td>Create trip → Set status to Inbound New → then Booked → Add tag "Mass Market Cruise" → Send deposit email manually</td><td>Trips → + New → Status dropdown → Tags field → Email tab</td></tr>
+          <tr><td><strong>Returning client books a cruise</strong></td><td>Create trip → Set status to Inbound Existing → then Booked → Add tag → Send deposit email</td><td>Same as above</td></tr>
+          <tr><td><strong>FIT / complex land trip</strong></td><td>Create trip → Inbound New/Existing → Planning (triggers planning workflow) → Booked when deposit paid → Add FIT tag</td><td>Trips → Status dropdown moves trip through stages</td></tr>
+          <tr><td><strong>Change an automation trigger date</strong> (for a specific trip)</td><td>Open trip → Automations (left nav) → Click automation → Deactivate → Edit trigger date → Reactivate</td><td>Trip → Automations</td></tr>
+          <tr><td><strong>Client pays — stop payment reminders</strong></td><td>Log the payment in Tern → Publish the trip. This prevents further payment reminder emails.</td><td>Trip → Payments tab → Publish button (red dot = unpublished changes)</td></tr>
+          <tr><td><strong>FIT client — customize Bon Voyage</strong></td><td>Deactivate the auto Bon Voyage in the trip's automations → Send a personal email instead (task fires 15 days before as reminder)</td><td>Trip → Automations → Bon Voyage → Deactivate</td></tr>
+          <tr><td><strong>Carnival cruise — remove on-board booking prompt</strong></td><td>Go to the trip's automations → find "On Board Booking Prompt" → Deactivate</td><td>Trip → Automations</td></tr>
+          <tr><td><strong>Destination requires VISA / ETIA</strong></td><td>Edit the VISA automation with destination-specific details → Activate it (around 72 days before trip)</td><td>Library → Workflows → Cruise Mass Market → VISA automation (or trip-level)</td></tr>
+          <tr><td><strong>Client booked their own flights — need to confirm transfers</strong></td><td>Activate the Flight Info Request automation (around 72 days before). Ask client for flight details.</td><td>Trip → Automations → Flight Info Request</td></tr>
+          <tr><td><strong>Final paperwork released by cruise line</strong></td><td>Activate the Final Documents automation at the trip level</td><td>Trip → Automations → Final Documents</td></tr>
+          <tr><td><strong>Group booking (two cabins together)</strong></td><td>Set up as a group in Tern. Use the Ada Seminario / Zuleika Ayala booking as the team training example.</td><td>Trips → Group setup (covered in team training session)</td></tr>
+          <tr><td><strong>Import existing trip from TravelJoy</strong></td><td>Use the Tern Chrome extension to bulk import. Then fine-tune in Tern. Good training exercise for Allison / Tabatha.</td><td>Chrome Extension → TravelJoy import</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-    <table class="quick-ref">
-      <thead>
-        <tr><th>Term</th><th>What It Means</th></tr>
-      </thead>
-      <tbody>
-        <tr><td class="em">Workflow</td><td>A bundled set of tasks + automations that applies to a trip. Multiple workflows can stack on one trip.</td></tr>
-        <tr><td class="em">Auto-Apply</td><td>When enabled on a workflow, it fires automatically the moment a trip reaches the right status or gets the right tag. No manual "apply" needed.</td></tr>
-        <tr><td class="em">Automation</td><td>An individual scheduled email or action within a workflow. Can be Active (fires automatically) or Inactive (you decide when/if to activate).</td></tr>
-        <tr><td class="em">Task</td><td>A to-do item assigned to you (or a VA). Tasks go to the team, not clients. Complete, reassign, or delete them as needed.</td></tr>
-        <tr><td class="em">TBB</td><td>Travel Biz Boss — the third-party workflow system Tern is built on top of. TBB emails live in "Shared With Me" and update automatically.</td></tr>
-        <tr><td class="em">Publish</td><td>Commits your trip changes to the client-facing view. A red dot on the Publish button = unpublished changes the client cannot see yet.</td></tr>
-        <tr><td class="em">Trip Status</td><td>Inbound New → Inbound Existing → Planning → Booked → Prep for Travel → Traveling → Traveled. Status changes trigger auto-apply workflows.</td></tr>
-        <tr><td class="em">Trip Tag</td><td>Labels added to a trip (e.g. "Mass Market Cruise", "FIT") that trigger tag-specific workflows.</td></tr>
-        <tr><td class="em">Shared With Me</td><td>TBB's email library section. Contains cruise-line specific deposit, final payment, and other branded emails. Do not save your own copy.</td></tr>
-        <tr><td class="em">Apply Updates</td><td>Button in the email template editor. Pushes your changes to all workflows currently using that template. Must click this after editing a template.</td></tr>
-        <tr><td class="em">2FA</td><td>Two-Factor Authentication. Must be enabled in Tern settings before the "Payment Due" trigger becomes available (needed for the 7-day payment reminder).</td></tr>
-        <tr><td class="em">OBC</td><td>Onboard Credit — a gift/perk added to the client's cruise booking. Task fires 14 days before trip.</td></tr>
-        <tr><td class="em">ETIA</td><td>Electronic Travel Information Authorization — like ESTA for EU/UK destinations. Required for some international cruise ports.</td></tr>
-        <tr><td class="em">FIT</td><td>Fully Independent Travel — custom-built land itineraries (vs. packaged cruises). More planning-intensive; uses the FIT Booked workflow.</td></tr>
-        <tr><td class="em">Sion</td><td>Lisa's host agency commission tracking system. Enter bookings in both Tern and Sion. Tern commission fields are optional but useful for cross-referencing.</td></tr>
-      </tbody>
-    </table>
+  <hr class="divider" />
 
-    <br>
-    <div class="card gold-accent" style="margin-top:0;">
-      <div class="card-label">Next Steps for the Team</div>
-      <h3>Before the Next Training Call (June 25)</h3>
-      <ul style="font-size:13px;color:var(--text-muted);padding-left:18px;line-height:2;">
-        <li>Complete Tern &amp; Learn courses at <a href="https://www.tern.travel/learn/courses" target="_blank" style="color:var(--teal)">tern.travel/learn/courses</a></li>
+  <!-- ── SECTION 8: GLOSSARY ── -->
+  <div class="section" id="glossary">
+    <p class="section-label">Section 8</p>
+    <h2>Glossary</h2>
+    <p class="section-desc">Key terms used in Tern and in these cheat sheets.</p>
+
+    <div class="table-wrap">
+      <table class="glossary-table">
+        <thead>
+          <tr><th>Term</th><th>What It Means</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Workflow</td><td>A bundled set of tasks + automations that applies to a trip. Multiple workflows can stack on one trip.</td></tr>
+          <tr><td>Auto-Apply</td><td>When enabled on a workflow, it fires automatically the moment a trip reaches the right status or gets the right tag. No manual "apply" needed.</td></tr>
+          <tr><td>Automation</td><td>An individual scheduled email or action within a workflow. Can be Active (fires automatically) or Inactive (you decide when/if to activate).</td></tr>
+          <tr><td>Task</td><td>A to-do item assigned to you (or a VA). Tasks go to the team, not clients. Complete, reassign, or delete them as needed.</td></tr>
+          <tr><td>TBB</td><td>Travel Biz Boss — the third-party workflow system Tern is built on top of. TBB emails live in "Shared With Me" and update automatically.</td></tr>
+          <tr><td>Publish</td><td>Commits your trip changes to the client-facing view. A red dot on the Publish button = unpublished changes the client cannot see yet.</td></tr>
+          <tr><td>Trip Status</td><td>Inbound New → Inbound Existing → Planning → Booked → Prep for Travel → Traveling → Traveled. Status changes trigger auto-apply workflows.</td></tr>
+          <tr><td>Trip Tag</td><td>Labels added to a trip (e.g. "Mass Market Cruise", "FIT") that trigger tag-specific workflows.</td></tr>
+          <tr><td>Shared With Me</td><td>TBB's email library section. Contains cruise-line specific deposit, final payment, and other branded emails. Do not save your own copy.</td></tr>
+          <tr><td>Apply Updates</td><td>Button in the email template editor. Pushes your changes to all workflows currently using that template. Must click this after editing a template.</td></tr>
+          <tr><td>2FA</td><td>Two-Factor Authentication. Must be enabled in Tern settings before the "Payment Due" trigger becomes available (needed for the 7-day payment reminder).</td></tr>
+          <tr><td>OBC</td><td>Onboard Credit — a gift/perk added to the client's cruise booking. Task fires 14 days before trip.</td></tr>
+          <tr><td>ETIA</td><td>Electronic Travel Information Authorization — like ESTA for EU/UK destinations. Required for some international cruise ports.</td></tr>
+          <tr><td>FIT</td><td>Fully Independent Travel — custom-built land itineraries (vs. packaged cruises). More planning-intensive; uses the FIT Booked workflow.</td></tr>
+          <tr><td>Sion</td><td>Lisa's host agency commission tracking system. Enter bookings in both Tern and Sion. Tern commission fields are optional but useful for cross-referencing.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- NEXT STEPS -->
+  <div class="callout info">
+    <span class="icon">📋</span>
+    <div>
+      <strong>Before the Next Training Call (June 25)</strong>
+      <ul style="margin-top:.5rem;padding-left:1.2rem;font-size:.85rem;display:flex;flex-direction:column;gap:.3rem;">
+        <li>Complete Tern &amp; Learn courses at <a href="https://www.tern.travel/learn/courses" target="_blank" rel="noopener">tern.travel/learn/courses</a></li>
         <li>Watch the TBB workflow Loom video (link in hero above)</li>
         <li>Lisa: review all cruise workflow emails and note any wording changes needed</li>
         <li>Lisa: draft new 90-day check-in email copy and send to Katie</li>
@@ -998,30 +798,16 @@ index.html<!DOCTYPE html>
         <li>Katie: add Explora Japan cruise trip for group training exercise</li>
       </ul>
     </div>
-  </section>
+  </div>
 
-</div>
+</div><!-- /page-wrap -->
 
-<!-- FOOTER -->
 <footer>
-  <p>Majestic Getaway × Tern Training Cheat Sheets &nbsp;|&nbsp; Prepared June 2026 &nbsp;|&nbsp;
-  <a href="https://help.tern.travel/" target="_blank">Tern Support</a> &nbsp;·&nbsp;
-  <a href="https://www.tern.travel/learn/courses" target="_blank">Tern &amp; Learn</a> &nbsp;·&nbsp;
-  <a href="https://www.loom.com/share/e6831bf278594729bdafdd25291c3f69" target="_blank">TBB Workflow Video</a>
-  </p>
+  Majestic Getaway × Tern Training Cheat Sheets | Prepared June 2026 |
+  <a href="https://help.tern.travel/" target="_blank" rel="noopener">Tern Support</a> ·
+  <a href="https://www.tern.travel/learn/courses" target="_blank" rel="noopener">Tern &amp; Learn</a> ·
+  <a href="https://www.loom.com/share/e6831bf278594729bdafdd25291c3f69" target="_blank" rel="noopener">TBB Workflow Video</a>
 </footer>
 
-<!-- SMOOTH SCROLL -->
-<script>
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      e.preventDefault();
-      const el = document.querySelector(a.getAttribute('href'));
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-      document.querySelectorAll('.nav-pills a').forEach(l => l.classList.remove('active'));
-      a.classList.add('active');
-    });
-  });
-</script>
 </body>
 </html>
