@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Service Fee Setup — Majestic Getaway | Tern Training</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:       #1a1a2e;
+      --ink-soft:  #4a4a6a;
+      --bg:        #f7f6f2;
+      --surface:   #ffffff;
+      --border:    #e2e0d8;
+      --accent:    #2563a8;
+      --accent-lt: #dbeafe;
+      --warn:      #92400e;
+      --warn-bg:   #fef3c7;
+      --ok:        #065f46;
+      --ok-bg:     #d1fae5;
+      --stripe:    #635bff;
+      --stripe-lt: #ede9fe;
+      --radius:    10px;
+      --shadow:    0 1px 4px rgba(0,0,0,.07);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--ink);
+      background: var(--bg);
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--ink);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 52px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav .brand {
+      font-family: 'Fraunces', serif;
+      font-size: 1.05rem;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: .01em;
+    }
+    nav .back-link {
+      font-size: .8rem;
+      color: #a5b4fc;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+    }
+    nav .back-link:hover { color: #fff; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--ink) 0%, #2d3a6b 100%);
+      color: #fff;
+      padding: 3.5rem 2rem 3rem;
+      text-align: center;
+    }
+    .hero .eyebrow {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #a5b4fc;
+      margin-bottom: .9rem;
+    }
+    .hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: .95rem;
+      color: #c7d2fe;
+      max-width: 520px;
+      margin: 0 auto 1.8rem;
+    }
+    .hero .ref-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .8rem;
+      color: #818cf8;
+      text-decoration: none;
+      border: 1px solid #3730a3;
+      padding: .4rem .9rem;
+      border-radius: 20px;
+      transition: background .15s, color .15s;
+    }
+    .hero .ref-link:hover { background: #3730a3; color: #fff; }
+
+    /* ── LAYOUT ── */
+    .page-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 4rem;
+    }
+
+    /* ── CALLOUT BOXES ── */
+    .callout {
+      border-radius: var(--radius);
+      padding: 1rem 1.2rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      gap: .75rem;
+      align-items: flex-start;
+      font-size: .88rem;
+    }
+    .callout .icon { font-size: 1.1rem; flex-shrink: 0; margin-top: .05rem; }
+    .callout p { margin: 0; }
+    .callout strong { display: block; margin-bottom: .2rem; font-size: .82rem; text-transform: uppercase; letter-spacing: .06em; }
+    .callout.warn  { background: var(--warn-bg);  border-left: 4px solid #d97706; color: var(--warn); }
+    .callout.info  { background: var(--accent-lt); border-left: 4px solid var(--accent); color: #1e3a5f; }
+    .callout.ok    { background: var(--ok-bg);     border-left: 4px solid #059669; color: var(--ok); }
+
+    /* ── SECTION HEADERS ── */
+    .section-label {
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: .5rem;
+    }
+    h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 1.1rem;
+    }
+    h3 {
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: .5rem;
+    }
+
+    /* ── STEPS ── */
+    .steps { display: flex; flex-direction: column; gap: 0; }
+    .step {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 0 1rem;
+      position: relative;
+    }
+    .step:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      left: 21px;
+      top: 44px;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+    .step-num {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-size: .85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(37,99,168,.3);
+      position: relative;
+      z-index: 1;
+    }
+    .step-body {
+      padding-bottom: 2rem;
+    }
+    .step-body h3 {
+      margin-top: .6rem;
+      margin-bottom: .35rem;
+    }
+    .step-body p {
+      color: var(--ink-soft);
+      font-size: .88rem;
+      margin-bottom: .5rem;
+    }
+    .step-body p:last-child { margin-bottom: 0; }
+
+    /* tip inside step */
+    .step-tip {
+      margin-top: .65rem;
+      background: var(--accent-lt);
+      border-radius: 6px;
+      padding: .6rem .85rem;
+      font-size: .82rem;
+      color: #1e3a5f;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2.2rem 0;
+    }
+
+    /* ── FEE TABLE ── */
+    .fee-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .85rem;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .fee-table th {
+      background: var(--ink);
+      color: #fff;
+      padding: .65rem 1rem;
+      text-align: left;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .fee-table td {
+      background: var(--surface);
+      padding: .7rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .fee-table tr:last-child td { border-bottom: none; }
+    .fee-table .label { font-weight: 600; color: var(--ink); }
+    .fee-table .amt   { font-weight: 700; color: var(--stripe); font-family: 'Fraunces', serif; }
+
+    /* ── TROUBLESHOOT ── */
+    .trouble-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+    }
+    .trouble-list li {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: .9rem 1rem .9rem 1.1rem;
+      font-size: .87rem;
+      color: var(--ink-soft);
+      display: flex;
+      gap: .7rem;
+    }
+    .trouble-list li::before {
+      content: '→';
+      color: var(--accent);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ── BACK BUTTON ── */
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      background: var(--ink);
+      color: #fff;
+      font-size: .82rem;
+      font-weight: 600;
+      padding: .55rem 1.1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      margin-top: 2rem;
+      transition: opacity .15s;
+    }
+    .back-btn:hover { opacity: .85; }
+
+    /* ── STRIPE BADGE ── */
+    .stripe-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      background: var(--stripe-lt);
+      color: var(--stripe);
+      font-size: .75rem;
+      font-weight: 700;
+      padding: .25rem .7rem;
+      border-radius: 20px;
+      margin-left: .5rem;
+      vertical-align: middle;
+    }
+
+    @media (max-width: 600px) {
+      .hero { padding: 2.5rem 1rem 2rem; }
+      .page-wrap { padding: 2rem 1rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="brand" href="index.html">Majestic Getaway | Tern Training</a>
+  <a class="back-link" href="index.html">← Back to Cheat Sheets</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <p class="eyebrow">Tern — Payments</p>
+  <h1>Service Fee Setup</h1>
+  <p>Connect Stripe to charge clients planning fees and deposit funds directly into your bank account.</p>
+  <a class="ref-link" href="https://help.tern.travel/en/articles/8866875-professional-service-fees" target="_blank" rel="noopener">
+    📄 Official Tern Help Article ↗
+  </a>
+</div>
+
+<!-- MAIN -->
+<div class="page-wrap">
+
+  <!-- BEFORE YOU START -->
+  <div class="callout warn">
+    <span class="icon">⚠️</span>
+    <p><strong>Important before you begin</strong>
+    This feature is only for <em>planning service fees</em> (e.g. trip planning fees) — not for collecting supplier payments. Only one Stripe account can be linked per Tern account at a time.</p>
+  </div>
+
+  <div class="callout info">
+    <span class="icon">💳</span>
+    <p><strong>Fee overview</strong>
+    Tern charges a <strong>0.6%</strong> processing fee on top of Stripe's standard fees. Stripe's default credit card rate is <strong>2.9% + 30¢</strong> per charge, plus a <strong>0.4%</strong> invoicing fee per paid invoice.</p>
+  </div>
+
+  <!-- SECTION: ACCOUNT SETUP -->
+  <p class="section-label">Account Setup</p>
+  <h2>Connecting Your Stripe Account <span class="stripe-badge">powered by Stripe</span></h2>
+
+  <div class="steps">
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h3>Open the Service Fees tab on any trip</h3>
+        <p>In Tern, go to any trip you're planning. You'll see a <strong>Service Fees</strong> tab in the left navigation. If Stripe isn't set up yet, you'll see a prompt to get started.</p>
+        <p>Click <strong>View Settings</strong> to continue.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h3>Click "Connect Account"</h3>
+        <p>On the Settings page, click <strong>Connect Account</strong> to launch Stripe's setup flow.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h3>Complete Stripe's setup</h3>
+        <p>You'll be redirected to Stripe. Review their Terms &amp; Privacy policy linked in the bottom left.</p>
+        <p>If you already have a Stripe account, use your existing email and password. Otherwise, create a new account and follow all of Stripe's on-screen instructions carefully.</p>
+        <div class="step-tip">
+          ✅ Make sure your Stripe account is <strong>fully verified</strong> before proceeding. Incomplete business information or pending verifications can cause delays.
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h3>Return to Tern — status shows "Pending"</h3>
+        <p>After finishing Stripe's flow, you'll be sent back to your Tern Settings page. Your connection will show as <strong>Pending</strong> — this is expected.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <h3>Confirm your email → go live</h3>
+        <p>Check your inbox for a confirmation email from Stripe. Once confirmed, your Stripe account will be <strong>Active</strong> and your Tern connection will update to <strong>Connected</strong>.</p>
+        <p>You're now ready to collect service fees from clients! 🎉</p>
+      </div>
+    </div>
+
+  </div>
+
+  <hr class="divider" />
+
+  <!-- SECTION: SENDING A FEE -->
+  <p class="section-label">Sending a Fee</p>
+  <h2>How to Invoice a Client</h2>
+
+  <div class="steps">
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h3>Go to Service Fees on the client's trip</h3>
+        <p>Open the trip → click <strong>Service Fees</strong> in the left nav. You'll now see a prompt to create your first fee.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h3>Fill in the invoice details</h3>
+        <p>Select <strong>who the fee is for</strong>, add a <strong>descriptive title</strong> the client will recognize, set an <strong>amount</strong>, and pick a <strong>due date</strong>.</p>
+        <p>Click <strong>Send Fee Invoice</strong> — the client will automatically receive an email from Stripe with the invoice.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h3>Track status in Tern</h3>
+        <p>The fee will show as <strong>Open</strong> in Tern after sending. Use the action menu to manage the fee in Stripe directly, or to grab a payment link to share manually.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <hr class="divider" />
+
+  <!-- FEE BREAKDOWN TABLE -->
+  <p class="section-label">Fee Reference</p>
+  <h2>Credit Card Fee Breakdown (Example)</h2>
+
+  <table class="fee-table">
+    <thead>
+      <tr>
+        <th>Fee Type</th>
+        <th>Rate</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="label">Stripe standard fee</td>
+        <td class="amt">2.9% + 30¢</td>
+        <td>Per successful charge (domestic credit card)</td>
+      </tr>
+      <tr>
+        <td class="label">Stripe invoicing fee</td>
+        <td class="amt">0.4%</td>
+        <td>Per paid invoice (0.5% if upgraded to Invoice Pro)</td>
+      </tr>
+      <tr>
+        <td class="label">Tern processing fee</td>
+        <td class="amt">0.6%</td>
+        <td>On top of what Stripe charges</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout info" style="margin-top:1rem;">
+    <span class="icon">ℹ️</span>
+    <p>Fees vary by payment method (credit card, ACH/bank transfer, international card). You can control which payment methods clients can use inside your Stripe account under <strong>Invoice Settings</strong>.</p>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- TROUBLESHOOTING -->
+  <p class="section-label">Troubleshooting</p>
+  <h2>Common Stripe Connection Issues</h2>
+
+  <ul class="trouble-list">
+    <li>Verify your Stripe account is fully validated — incomplete business info (like a missing website) can block connectivity.</li>
+    <li>Confirm all Stripe-required verification steps are completed before connecting to Tern.</li>
+    <li>If issues persist after verifying, disconnect and reconnect your Stripe account from Tern Settings to reset the connection.</li>
+  </ul>
+
+  <div class="callout ok" style="margin-top:1.25rem;">
+    <span class="icon">✅</span>
+    <p><strong>After a client pays</strong>
+    You'll get an email alert from Stripe, the fee status in Tern will update to <strong>Paid</strong>, and funds will be deposited directly into your Stripe account for tracking and reporting.</p>
+  </div>
+
+  <hr class="divider" />
+
+  <a class="back-btn" href="index.html">← Back to Tern Cheat Sheets</a>
+
+</div><!-- /page-wrap -->
+
+</body>
+</html>
